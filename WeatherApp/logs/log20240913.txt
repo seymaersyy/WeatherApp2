@@ -42,3 +42,8 @@ System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport 
 2024-09-13 10:44:14.199 +03:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
 2024-09-13 10:44:14.201 +03:00 [DBG] Request did not match any endpoints
 2024-09-13 10:44:14.401 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7080/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 205.8752ms
+2024-09-13 11:33:49.825 +03:00 [DBG] Connection id "0HN6JOVE30DG8" received FIN.
+2024-09-13 11:33:49.838 +03:00 [DBG] Connection id "0HN6JOVE30DG8" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-09-13 11:33:49.849 +03:00 [DBG] Connection id "0HN6JOVE30DG8" is closed. The last processed stream ID was 7.
+2024-09-13 11:33:49.871 +03:00 [DBG] The connection queue processing loop for 0HN6JOVE30DG8 completed.
+2024-09-13 11:33:49.874 +03:00 [DBG] Connection id "0HN6JOVE30DG8" stopped.

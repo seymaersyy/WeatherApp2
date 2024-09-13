@@ -4,6 +4,7 @@ using WeatherApp.Data;
 using WeatherApp.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using WeatherApp.Wrapper;
 
 namespace WeatherApp.Controllers
 {

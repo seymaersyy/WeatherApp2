@@ -1,5 +1,9 @@
-﻿namespace WeatherApp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace WeatherApp.Models
 {
+    [Table("HourlyWeather")]
     public class HourlyWeather
     {
         public int Id { get; set; } // Primary key (ID)
@@ -10,6 +14,7 @@
         public  required string WeatherCondition { get; set; } // Weather description (e.g., Sunny, Rainy)
 
         // Navigation property to represent the relationship with City
+        [JsonIgnore]
         public City? City { get; set; }
     }
 }

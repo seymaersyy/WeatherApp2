@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using WeatherApp.Data;  // Model ve DbContext dosyasýnýn namespace'i
 using Serilog;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Serilog yapýlandýrmasý
@@ -24,6 +25,8 @@ builder.Services.AddSwaggerGen();
 // Veritabaný baðlantýsý ve DbContext ayarlarý
 builder.Services.AddDbContext<WeatherAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 
 var app = builder.Build();
 
