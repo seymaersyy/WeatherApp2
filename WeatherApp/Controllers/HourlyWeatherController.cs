@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeatherApp.Services;
 
-
 namespace WeatherApp.Controllers
 {
     [Route("api/[controller]")]
@@ -14,16 +13,11 @@ namespace WeatherApp.Controllers
     public class HourlyWeatherController : ControllerBase
     {
         private readonly WeatherAppDbContext _context;
-
-        public HourlyWeatherController(WeatherAppDbContext context)
-        {
-            _context = context;
-        }
-
         private readonly WeatherService _weatherService;
 
-        public HourlyWeatherController(WeatherService weatherService)
+        public HourlyWeatherController(WeatherAppDbContext context, WeatherService weatherService)
         {
+            _context = context;
             _weatherService = weatherService;
         }
 
@@ -94,7 +88,6 @@ namespace WeatherApp.Controllers
 
             return hourlyWeathers;
         }
-
 
         // POST: api/HourlyWeather
         [HttpPost]
@@ -173,4 +166,3 @@ namespace WeatherApp.Controllers
         }
     }
 }
-

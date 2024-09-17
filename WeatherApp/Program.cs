@@ -19,7 +19,12 @@ builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddHttpClient(); // Servisi ekledim.
+
+// HttpClient'i ve WeatherService'i dependency injection'a ekleyin
+builder.Services.AddHttpClient<WeatherService>(client =>
+{
+    client.BaseAddress = new Uri("https://www.mgm.gov.tr/FTPDATA/analiz/"); // MGM API'nin base adresi
+});
 
 
 // Swagger ve OpenAPI ayarlarý
