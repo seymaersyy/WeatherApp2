@@ -1,4 +1,6 @@
-﻿namespace WeatherApp.Models
+﻿using System.Text.Json.Serialization;
+
+namespace WeatherApp.Models
 {
     public class City
     {

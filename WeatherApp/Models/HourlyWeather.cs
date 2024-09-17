@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace WeatherApp.Models
 {
@@ -8,13 +9,23 @@ namespace WeatherApp.Models
     {
         public int Id { get; set; } // Primary key (ID)
         public int CityID { get; set; } // Foreign key referencing City
-        public DateTime Date { get; set; } // Date and time of the weather data
-        public float Temperature { get; set; } // Temperature in degrees
-        public int Humidity { get; set; } // Humidity percentage
-        public  required string WeatherCondition { get; set; } // Weather description (e.g., Sunny, Rainy)
 
-        // Navigation property to represent the relationship with City
+        [XmlElement("Tarih")]
+        public DateTime Date { get; set; } // XML'deki Tarih elemanıyla eşleşir
+
+        [XmlElement("tmp")]
+        public float Temperature { get; set; } // XML'deki tmp elemanıyla eşleşir
+
+        [XmlElement("nem")]
+        public int Humidity { get; set; } // XML'deki nem elemanıyla eşleşir
+
+
+        [XmlElement("Durum")]
+        public required string WeatherCondition { get; set; } // XML'deki Durum elemanıyla eşleşir
+
+
         [JsonIgnore]
-        public City? City { get; set; }
+        public City? City { get; set; } // Relationship with City
     }
 }
+
