@@ -36,7 +36,7 @@ namespace WeatherApp.Migrations
 
                     b.HasKey("CityID");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("WeatherApp.Models.HourlyWeather", b =>
@@ -67,7 +67,7 @@ namespace WeatherApp.Migrations
 
                     b.HasIndex("CityID");
 
-                    b.ToTable("HourlyWeather", (string)null);
+                    b.ToTable("HourlyWeather");
                 });
 
             modelBuilder.Entity("WeatherApp.Models.HourlyWeather", b =>

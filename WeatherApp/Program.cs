@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WeatherApp.Data;  // Model ve DbContext dosyasýnýn namespace'i
 using Serilog;
-using WeatherApp.Services;
-
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,8 +17,6 @@ builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddHttpClient(); // Servisi ekledim.
-
 
 // Swagger ve OpenAPI ayarlarý
 builder.Services.AddEndpointsApiExplorer();

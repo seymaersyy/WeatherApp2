@@ -4,8 +4,6 @@ using WeatherApp.Data;
 using WeatherApp.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WeatherApp.Services;
-
 
 namespace WeatherApp.Controllers
 {
@@ -18,30 +16,6 @@ namespace WeatherApp.Controllers
         public HourlyWeatherController(WeatherAppDbContext context)
         {
             _context = context;
-        }
-
-        private readonly WeatherService _weatherService;
-
-        public HourlyWeatherController(WeatherService weatherService)
-        {
-            _weatherService = weatherService;
-        }
-
-        // API'den hava durumu verilerini çekip veritabanına kaydet
-        [HttpGet("fetch-weather-data")]
-        public async Task<IActionResult> FetchWeatherData()
-        {
-            try
-            {
-                var weatherData = await _weatherService.GetWeatherDataAsync(); // API'den veri çek
-                await _weatherService.SaveWeatherDataToDatabaseAsync(weatherData); // Veritabanına kaydet
-
-                return Ok("Weather data fetched and saved successfully.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error: {ex.Message}");
-            }
         }
 
         // GET: api/HourlyWeather
@@ -80,7 +54,7 @@ namespace WeatherApp.Controllers
                 return BadRequest("City name, start date, and end date are required.");
             }
 
-            // Veritabanında sorgu oluştur
+            // Veritabanında sorgu oluşturun
             var hourlyWeathers = await _context.HourlyWeathers
                 .Include(hw => hw.City)  // Şehri dahil et
                 .Where(hw => hw.City.CityName == cityName &&
@@ -173,4 +147,3 @@ namespace WeatherApp.Controllers
         }
     }
 }
-
